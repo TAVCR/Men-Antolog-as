@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - Bystro Bar Restaurante</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuentes: Montserrat para títulos y Inter para cuerpo -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Paleta de colores para tema oscuro y tipografía moderna */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #111827; /* Gris oscuro (gray-900) */
+            color: #E5E7EB; /* Gris claro para texto (gray-200) */
+        }
+        h1, h2, h3, .category-button { 
+            font-family: 'Montserrat', sans-serif; 
+        }
+        .menu-item-price { 
+            color: #F59E0B; /* Ámbar brillante (amber-500) */
+        }
+        .view { 
+            display: none; 
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <header class="bg-gray-900/70 backdrop-blur-sm shadow-lg py-4 sticky top-0 z-10">
+        <div class="container mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-white">Nuestro Menú</h1>
+            <p class="text-lg text-gray-300 mt-2">Sabores que cuentan una historia</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <!-- VISTA DE CATEGORÍAS PRINCIPALES -->
+        <div id="main-categories-view" class="view">
+            <h2 class="text-3xl font-bold text-center mb-8 text-white">Categorías</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <button onclick="showView('items-bocas')" class="category-button bg-amber-600 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-amber-500 transition-all duration-300">Bocas</button>
+                <button onclick="showView('items-entradas')" class="category-button bg-amber-600 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-amber-500 transition-all duration-300">Entradas</button>
+                <button onclick="showView('items-sopas')" class="category-button bg-amber-600 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-amber-500 transition-all duration-300">Sopas</button>
+                <button onclick="showView('items-ensaladas')" class="category-button bg-amber-600 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-amber-500 transition-all duration-300">Ensaladas</button>
+                <button onclick="showView('items-arroces')" class="category-button bg-amber-600 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-amber-500 transition-all duration-300">Arroces</button>
+                <button onclick="showView('items-pastas')" class="category-button bg-amber-600 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-amber-500 transition-all duration-300">Pastas</button>
+                <button onclick="showView('items-hamburguesas')" class="category-button bg-amber-600 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-amber-500 transition-all duration-300">Hamburguesas</button>
+                <button onclick="showView('sub-platos-fuertes')" class="category-button bg-amber-600 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-amber-500 transition-all duration-300">Platos Fuertes</button>
+                <button onclick="showView('items-postres')" class="category-button bg-amber-600 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-amber-500 transition-all duration-300">Postres</button>
+                <button onclick="showView('items-ninos')" class="category-button bg-amber-600 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-amber-500 transition-all duration-300">Menú de Niños</button>
+                <button onclick="showView('sub-bebidas')" class="category-button bg-amber-600 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-amber-500 transition-all duration-300">Bebidas</button>
+            </div>
+        </div>
+
+        <!-- VISTAS DE SUBCATEGORÍAS -->
+        <div id="sub-platos-fuertes" class="view">
+            <button onclick="showView('main-categories-view')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver a Categorías</button>
+            <h2 class="text-3xl font-bold text-center mb-8 text-white">Platos Fuertes</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <button onclick="showView('items-aves')" class="category-button bg-gray-800 text-white p-6 rounded-lg shadow-lg text-xl md:text-2xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Aves</button>
+                <button onclick="showView('items-carnes')" class="category-button bg-gray-800 text-white p-6 rounded-lg shadow-lg text-xl md:text-2xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Carnes</button>
+                <button onclick="showView('items-pescados')" class="category-button bg-gray-800 text-white p-6 rounded-lg shadow-lg text-xl md:text-2xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Pescados y Mariscos</button>
+            </div>
+        </div>
+
+        <div id="sub-bebidas" class="view">
+            <button onclick="showView('main-categories-view')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver a Categorías</button>
+            <h2 class="text-3xl font-bold text-center mb-8 text-white">Bebidas</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <button onclick="showView('items-cocteles-casa')" class="category-button bg-gray-800 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Coctelería de la Casa</button>
+                <button onclick="showView('items-gin-tonics')" class="category-button bg-gray-800 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Gin & Tonics</button>
+                <button onclick="showView('items-margaritas')" class="category-button bg-gray-800 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Margaritas</button>
+                <button onclick="showView('items-sangrias')" class="category-button bg-gray-800 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Sangrías</button>
+                <button onclick="showView('items-vinos')" class="category-button bg-gray-800 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Vinos</button>
+                <button onclick="showView('items-licores')" class="category-button bg-gray-800 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Licores</button>
+                <button onclick="showView('items-naturales')" class="category-button bg-gray-800 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Naturales</button>
+                <button onclick="showView('items-limonadas')" class="category-button bg-gray-800 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Limonadas y Tés</button>
+                <button onclick="showView('items-smoothies')" class="category-button bg-gray-800 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Smoothies</button>
+                <button onclick="showView('items-cafes')" class="category-button bg-gray-800 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Cafetería</button>
+                <button onclick="showView('items-calientes')" class="category-button bg-gray-800 text-white p-4 md:p-6 rounded-lg shadow-lg text-lg md:text-xl transform hover:scale-105 hover:bg-gray-700 transition-all duration-300">Bebidas Calientes</button>
+            </div>
+        </div>
+
+        <!-- VISTAS DE ITEMS - COMPLETAS Y CORRECTAS -->
+
+        <section id="items-bocas" class="view mb-12">
+            <button onclick="showView('main-categories-view')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Bocas</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/d2691e/ffffff?text=Chifrijo" alt="Chifrijo" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Chifrijo</h3><p class="text-2xl font-bold menu-item-price">₡6,000</p></div></div>
+            </div>
+        </section>
+        
+        <section id="items-entradas" class="view mb-12">
+            <button onclick="showView('main-categories-view')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Entradas</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/333333/ffffff?text=Carpaccio+Res" alt="Carpaccio de Res" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Carpaccio de Res</h3><p class="text-gray-400 mb-4">Finas láminas de lomito, aderezo de la casa, alcaparras y lascas de parmesano.</p><p class="text-2xl font-bold menu-item-price">₡7,500</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/ff6347/ffffff?text=Tartar+Atún" alt="Tartar de Atún" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Tartar de Atún</h3><p class="text-gray-400 mb-4">Atún fresco marinado con sabores orientales sobre una cama de aguacate.</p><p class="text-2xl font-bold menu-item-price">₡7,500</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/c48c34/ffffff?text=Ceviche+Bystro" alt="Ceviche Bystro" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Ceviche Bystro</h3><p class="text-gray-400 mb-4">De corvina, con la receta tradicional de la casa.</p><p class="text-2xl font-bold menu-item-price">₡7,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/4682b4/ffffff?text=Ceviche+Mixto" alt="Ceviche Mixto" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Ceviche Mixto</h3><p class="text-gray-400 mb-4">Corvina, camarón y pulpo.</p><p class="text-2xl font-bold menu-item-price">₡7,500</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-sopas" class="view mb-12">
+            <button onclick="showView('main-categories-view')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Sopas</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/ff4500/ffffff?text=Sopa+de+Tomate" alt="Sopa de Tomate" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Sopa de Tomate</h3><p class="text-gray-400 mb-4">Con albahaca y queso parmesano.</p><p class="text-2xl font-bold menu-item-price">₡5,500</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/8b4513/ffffff?text=Sopa+Azteca" alt="Sopa Azteca" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Sopa Azteca</h3><p class="text-gray-400 mb-4">La tradicional sopa de tortilla, con aguacate, queso y natilla.</p><p class="text-2xl font-bold menu-item-price">₡5,500</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-ensaladas" class="view mb-12">
+            <button onclick="showView('main-categories-view')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Ensaladas</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/90ee90/000000?text=Ensalada+César" alt="Ensalada César" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Ensalada César</h3><p class="text-gray-400 mb-4">Lechuga, aderezo césar, crutones y parmesano. Pollo (₡7,000), Camarones (₡8,000).</p><p class="text-2xl font-bold menu-item-price">₡6,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/ffcccb/000000?text=Ensalada+Caprese" alt="Ensalada Caprese" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Ensalada Caprese</h3><p class="text-gray-400 mb-4">Rodajas de tomate y queso mozzarella fresco, con un toque de albahaca.</p><p class="text-2xl font-bold menu-item-price">₡6,500</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-arroces" class="view mb-12">
+            <button onclick="showView('main-categories-view')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Arroces</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/fdfd96/000000?text=Arroz+con+Pollo" alt="Arroz con Pollo" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Arroz con Pollo</h3><p class="text-2xl font-bold menu-item-price">₡8,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/ffb347/000000?text=Arroz+con+Camarones" alt="Arroz con Camarones" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Arroz con Camarones</h3><p class="text-2xl font-bold menu-item-price">₡9,000</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-pastas" class="view mb-12">
+            <button onclick="showView('main-categories-view')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Pastas</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/c05a32/ffffff?text=Pasta+Frutti+di+Mare" alt="Pasta Frutti di Mare" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Frutti di Mare</h3><p class="text-gray-400 mb-4">Camarones, calamares, mejillones y pulpo en salsa de tomate natural.</p><p class="text-2xl font-bold menu-item-price">₡10,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/f5f5dc/000000?text=Pasta+Carbonara" alt="Pasta a la Carbonara" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">A la Carbonara</h3><p class="text-gray-400 mb-4">La clásica receta italiana con tocineta, huevo y queso parmesano.</p><p class="text-2xl font-bold menu-item-price">₡8,500</p></div></div>
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/fff8dc/000000?text=Pasta+Alfredo" alt="Pasta Alfredo" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Alfredo</h3><p class="text-gray-400 mb-4">Salsa cremosa de queso parmesano. Con Pollo (₡9,000), Con Camarones (₡10,000).</p><p class="text-2xl font-bold menu-item-price">₡8,000</p></div></div>
+            </div>
+        </section>
+        
+        <section id="items-hamburguesas" class="view mb-12">
+            <button onclick="showView('main-categories-view')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Hamburguesas</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/a52a2a/ffffff?text=Hamburguesa+de+Pollo" alt="Hamburguesa de Pollo" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Hamburguesa de Pollo</h3><p class="text-gray-400 mb-4">Pechuga de pollo a la parrilla, queso y vegetales.</p><p class="text-2xl font-bold menu-item-price">₡9,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/8b4513/ffffff?text=Hamburguesa+de+Res" alt="Hamburguesa de Res" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Hamburguesa de Res</h3><p class="text-gray-400 mb-4">Torta de res, queso, tocineta y salsa especial.</p><p class="text-2xl font-bold menu-item-price">₡9,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/ffdab9/000000?text=Hamburguesa+de+Pescado" alt="Hamburguesa de Pescado" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Hamburguesa de Pescado</h3><p class="text-gray-400 mb-4">Filete de pescado empanizado con salsa tártara.</p><p class="text-2xl font-bold menu-item-price">₡9,000</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-aves" class="view mb-12">
+            <button onclick="showView('sub-platos-fuertes')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Aves</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/a0522d/ffffff?text=Pollo+Parrilla" alt="Pollo a la Parrilla" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Pollo a la Parrilla</h3><p class="text-gray-400 mb-4">Pechuga de pollo al grill con 2 guarniciones a elegir.</p><p class="text-2xl font-bold menu-item-price">₡9,000</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-carnes" class="view mb-12">
+            <button onclick="showView('sub-platos-fuertes')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Carnes</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/8a5a2a/ffffff?text=Lomo+Saltado" alt="Lomo Saltado" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Lomo Saltado</h3><p class="text-gray-400 mb-4">Platillo peruano con trozos de lomo, vegetales salteados y papas.</p><p class="text-2xl font-bold menu-item-price">₡10,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/800000/ffffff?text=Lomito+Parrilla" alt="Lomito a la Parrilla" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Lomito a la Parrilla</h3><p class="text-gray-400 mb-4">250g de lomito con 2 guarniciones a elegir.</p><p class="text-2xl font-bold menu-item-price">₡13,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/b22222/ffffff?text=Entraña" alt="Entraña a la Parrilla" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Entraña a la Parrilla</h3><p class="text-gray-400 mb-4">300g de entraña importada con 2 guarniciones a elegir.</p><p class="text-2xl font-bold menu-item-price">₡15,000</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-pescados" class="view mb-12">
+            <button onclick="showView('sub-platos-fuertes')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Pescados y Mariscos</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/e07b39/ffffff?text=Salmón" alt="Salmón a la Parrilla" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Salmón a la Parrilla</h3><p class="text-gray-400 mb-4">Con salsa de maracuyá y 2 guarniciones.</p><p class="text-2xl font-bold menu-item-price">₡12,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/00008b/ffffff?text=Pulpo" alt="Pulpo a la Parrilla" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Pulpo a la Parrilla</h3><p class="text-gray-400 mb-4">Pulpo marinado y cocinado a la perfección, con 2 guarniciones.</p><p class="text-2xl font-bold menu-item-price">₡13,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/8b0000/ffffff?text=Atún" alt="Atún Sellado" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Atún Sellado</h3><p class="text-gray-400 mb-4">Lomo de atún sellado en costra de ajonjolí con 2 guarniciones.</p><p class="text-2xl font-bold menu-item-price">₡11,000</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-postres" class="view mb-12">
+            <button onclick="showView('main-categories-view')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Postres</h2>
+             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/f5deb3/333333?text=Flan+de+Coco" alt="Flan de Coco" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Flan de Coco</h3><p class="text-2xl font-bold menu-item-price">₡4,500</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/deb887/333333?text=Torta+Chilena" alt="Torta Chilena" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Torta Chilena</h3><p class="text-2xl font-bold menu-item-price">₡4,500</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/ffd700/000000?text=Cheesecake" alt="Cheesecake de Maracuyá" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Cheesecake de Maracuyá</h3><p class="text-2xl font-bold menu-item-price">₡4,500</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-ninos" class="view mb-12">
+            <button onclick="showView('main-categories-view')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Menú de Niños</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/daa520/ffffff?text=Deditos+de+Pollo" alt="Deditos de Pollo" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Deditos de Pollo</h3><p class="text-2xl font-bold menu-item-price">₡6,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/cd853f/ffffff?text=Deditos+de+Pescado" alt="Deditos de Pescado" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Deditos de Pescado</h3><p class="text-2xl font-bold menu-item-price">₡6,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/ff6347/ffffff?text=Pasta+en+Salsa+Roja" alt="Pasta en Salsa Roja" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Pasta en Salsa Roja</h3><p class="text-2xl font-bold menu-item-price">₡6,000</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-cocteles-casa" class="view mb-12">
+             <button onclick="showView('sub-bebidas')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Coctelería de la Casa</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/228b22/ffffff?text=Mojito" alt="Mojito" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Mojito</h3><p class="text-2xl font-bold menu-item-price">₡5,000</p></div></div>
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/dc143c/ffffff?text=Cosmopolitan" alt="Cosmopolitan" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Cosmopolitan</h3><p class="text-2xl font-bold menu-item-price">₡5,000</p></div></div>
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/ffefd5/000000?text=Piña+Colada" alt="Piña Colada" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Piña Colada</h3><p class="text-2xl font-bold menu-item-price">₡5,000</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-gin-tonics" class="view mb-12">
+             <button onclick="showView('sub-bebidas')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Gin & Tonics</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/40e0d0/000000?text=Gin+Tonic" alt="Gin & Tonic Clásico" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Clásico</h3><p class="text-2xl font-bold menu-item-price">₡6,000</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-margaritas" class="view mb-12">
+             <button onclick="showView('sub-bebidas')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Margaritas</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/4682b4/ffffff?text=Margarita" alt="Margarita Clásica" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Margarita Clásica</h3><p class="text-2xl font-bold menu-item-price">₡5,000</p></div></div>
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/dda0dd/000000?text=Margarona" alt="Margarona" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Margarona</h3><p class="text-2xl font-bold menu-item-price">₡7,000</p></div></div>
+            </div>
+        </section>
+        
+        <section id="items-sangrias" class="view mb-12">
+             <button onclick="showView('sub-bebidas')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Sangrías</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/c71585/ffffff?text=Sangría" alt="Sangría" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Sangría Tinta o Blanca</h3><p class="text-gray-400">Copa: ₡4,000 / Jarra: ₡15,000</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-vinos" class="view mb-12">
+             <button onclick="showView('sub-bebidas')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Vinos</h2>
+             <div class="p-6 bg-gray-800 rounded-lg shadow-lg"><p class="text-gray-300">Amplia selección de vinos tintos y blancos por copa y por botella. Consulte nuestra cava.</p></div>
+        </section>
+        
+        <section id="items-licores" class="view mb-12">
+             <button onclick="showView('sub-bebidas')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Licores</h2>
+            <div class="p-6 bg-gray-800 rounded-lg shadow-lg"><p class="text-gray-300">Rones, whiskies, ginebras, vodkas y más. Consulte por nuestra selección premium.</p></div>
+        </section>
+
+        <section id="items-naturales" class="view mb-12">
+             <button onclick="showView('sub-bebidas')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Naturales</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/ff0000/ffffff?text=Naturales" alt="Bebidas Naturales" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Naturales</h3><p class="text-gray-400 mb-4">Fresa, Mora, Piña, Maracuyá</p><p class="text-2xl font-bold menu-item-price">₡2,500</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/add8e6/000000?text=Gaseosas" alt="Gaseosas" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Gaseosas</h3><p class="text-gray-400 mb-4">Coca-Cola, Fanta, Ginger Ale, etc.</p><p class="text-2xl font-bold menu-item-price">₡2,000</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-limonadas" class="view mb-12">
+            <button onclick="showView('sub-bebidas')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Limonadas y Tés Fríos</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/98fb98/000000?text=Limonada" alt="Limonada con Hierbabuena" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Limonada con Hierbabuena</h3><p class="text-2xl font-bold menu-item-price">₡3,000</p></div></div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/e0ffff/000000?text=Té+Frío" alt="Té Frío" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Té Frío de la Casa</h3><p class="text-2xl font-bold menu-item-price">₡2,500</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-smoothies" class="view mb-12">
+            <button onclick="showView('sub-bebidas')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Smoothies</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/ffb6c1/000000?text=Smoothie" alt="Smoothie" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Smoothies de Frutas</h3><p class="text-gray-400">Pide tu combinación favorita</p><p class="text-2xl font-bold menu-item-price">₡3,500</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-cafes" class="view mb-12">
+             <button onclick="showView('sub-bebidas')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Cafetería</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/6f4e37/ffffff?text=Espresso" alt="Café Espresso" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Espresso</h3><p class="text-2xl font-bold menu-item-price">₡1,800</p></div></div>
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/8b4513/ffffff?text=Americano" alt="Café Americano" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Americano</h3><p class="text-2xl font-bold menu-item-price">₡1,800</p></div></div>
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/d2b48c/000000?text=Cappuccino" alt="Cappuccino" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Cappuccino</h3><p class="text-2xl font-bold menu-item-price">₡2,500</p></div></div>
+            </div>
+        </section>
+
+        <section id="items-calientes" class="view mb-12">
+             <button onclick="showView('sub-bebidas')" class="mb-6 bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">&larr; Volver</button>
+            <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 text-white">Bebidas Calientes</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/8b4513/ffffff?text=Chocolate" alt="Chocolate Caliente" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Chocolate Caliente</h3><p class="text-2xl font-bold menu-item-price">₡3,000</p></div></div>
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"><img src="https://placehold.co/600x400/006400/ffffff?text=Té+Caliente" alt="Té Caliente" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-2xl font-bold mb-2 text-white">Té Caliente</h3><p class="text-gray-400">Variedad de sabores</p><p class="text-2xl font-bold menu-item-price">₡2,000</p></div></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-black mt-12 py-6">
+        <div class="container mx-auto text-center px-4">
+            <p class="text-gray-400">&copy; 2024 Bystro Bar Restaurante. Todos los derechos reservados.</p>
+            <p class="text-gray-500">San José, Costa Rica</p>
+        </div>
+    </footer>
+
+    <script>
+        const allViews = document.querySelectorAll('.view');
+        function showView(viewIdToShow) {
+            allViews.forEach(view => { view.style.display = 'none'; });
+            const viewToShow = document.getElementById(viewIdToShow);
+            if (viewToShow) { viewToShow.style.display = 'block'; }
+            window.scrollTo(0, 0); // Regresar al inicio de la página en cada cambio
+        }
+        document.addEventListener('DOMContentLoaded', () => { showView('main-categories-view'); });
+    </script>
+
+</body>
+</html>
